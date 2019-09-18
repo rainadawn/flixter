@@ -1,5 +1,8 @@
 class Lesson < ApplicationRecord
-	belongs_to :section
 	mount_uploader :video, VideoUploader
+
+	belongs_to :section
+	belongs_to :user 
+	
  
 end
