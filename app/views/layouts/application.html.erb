@@ -7,7 +7,7 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-    <link href="https://vjs.zencdn.net/7.6.0/video-js.css" rel="stylesheet">
+    <link href="http://vjs.zencdn.net/7.6.0/video-js.css" rel="stylesheet">
   </head>
 
   <body>
@@ -23,7 +23,7 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item">
-        <%= link_to 'See All Courses', courses_path, class: 'nav-link' %>
+        <%= link_to 'See All Courses', courses_path, class: 'nav-link'%>
       </li>
     </ul>
    <ul class="navbar-nav">
@@ -46,6 +46,7 @@
 <% if notice.present? %>
 <p class="alert alert-info"><%= notice %></p>
 <% end %>
+
 <% if alert.present? %>
 <p class="alert alert-danger"><%= alert %></p>
 <% end %>

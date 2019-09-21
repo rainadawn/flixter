@@ -2,9 +2,7 @@
 
 <div class="booyah-box col-10 offset-1">
 	<h1><%= @course.title %></h1>
-	<% if @course.image.nil? %>
-		<%= image_tag @course.image, class: 'img-fluid' %>
-	<% end %>
+		<%= image_tag @course.image, class: 'img-fluid' if @course.image? %>
 <br />
 	
 	<div class="row">
@@ -16,10 +14,10 @@
 			<% if current_user && current_user == @course.user %>
 				<br />
 				<br />
-				<%= link_to 'Administer', instructor_course_path(@course), class: 'btn btn-danger btn large' %>
+				<%= link_to 'Administer', instructor_course_path(@course), class: 'btn btn-danger btn-large' %>
 			<% end %>
 		
-		<br />
+			<br />
 			<br />
 
 			<% if current_user %>
@@ -30,7 +28,7 @@
 					<%= link_to 'Enroll', course_enrollments_path(@course), class: 'btn btn-primary', method: :post %>
 				<%else %>	
 					<%= form_tag course_enrollments_path(@course) do %>
-         	
+         		
           <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
                   data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
                   data-email="<%= current_user.email %>"
@@ -49,6 +47,7 @@
 			<%= @course.description %>
 		</div>
 	</div>
+
 	<div class="col-12">
 		<% @course.sections.each do |section| %>
 		<br /><br />
@@ -75,4 +74,3 @@
 		<% end %>
 	</div>
 </div>
-

@@ -11,7 +11,7 @@ class LessonsController < ApplicationController
 
 	def require_authorized_for_current_lesson
 		if current_lesson.user != current_user
-			redirect_to courses_path(@course), alert: 'You Are Not Enrolled'
+			redirect_to courses_path(current_course), alert: 'You Are Not Enrolled'
 		end
 	end
 
